@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: executing remote ssh commands using
-        uses: cross-the-world/ssh-pipeline@master
+        uses: appleboy/ssh-action@master
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           user: ${{ secrets.SSH_USERNAME }}
