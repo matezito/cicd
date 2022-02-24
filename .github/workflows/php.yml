@@ -47,12 +47,13 @@ jobs:
       - name: executing remote ssh commands using
         uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          user: ${{ secrets.SSH_USERNAME }}
           host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: | 
             cd /var/www/html
-            touch hola.txt
+            touch hola2.txt
             
 
       
