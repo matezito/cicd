@@ -49,7 +49,7 @@ jobs:
       - name: Composer
         run: composer install --prefer-dist --no-progress
       - name: Autoload
-        runt: composer dump-autoload
+        run: composer dump-autoload
       
       - name: NPM Install
         run: npm install
