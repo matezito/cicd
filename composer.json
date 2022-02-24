@@ -1,0 +1,22 @@
+{
+    "name": "mate/int",
+    "description": "integración con el sistema de gestión de proyectos",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mate\\Int\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Juan Iriart",
+            "email": "jeiriart@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
+    }
+}
