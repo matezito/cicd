@@ -46,12 +46,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Composer
-        run: composer install --prefer-dist --no-progress
-      - name: Autoload
-        run: composer dump-autoload
+      - name: ssh pipelines
+        uses: cross-the-world/ssh-pipeline@master
+        with:
+          host: ${{ secrets.DC_HOST }}
+          user: ${{ secrets.DC_USER }}
+          connect_timeout: 10s
+          script: | 
+            cd /var/www/html/cicd
+            composer install
+            composer dump-autoload
+            npm install
+            npm run watch
+
       
-      - name: NPM Install
-        run: npm install
-      - name: Webpack
-        run: npm run build
