@@ -45,16 +45,12 @@ jobs:
 
     steps:
       - name: executing remote ssh commands using
-        uses: appleboy/ssh-action@master
+        uses: shimataro/ssh-key-action@v2.1.0
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: | 
-            cd /var/www/html/cicd
-            composer install
-            composer dump-autoload
-            npm install
-            npm run watch
+          known_hosts: ${{ secrets.SSH_HOST }}
+      - name: Execute test Script
+        run: ssh root@137.184.127.115 bash test.sh
+            
 
       
