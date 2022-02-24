@@ -45,12 +45,14 @@ jobs:
 
     steps:
       - name: executing remote ssh commands using
-        uses: shimataro/ssh-key-action@v2.1.0
+        uses: cross-the-world/ssh-pipeline@master
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_HOST }}
-      - name: Execute test Script
-        run: ssh root@137.184.127.115 bash test.sh
+          user: ${{ secrets.SSH_USERNAME }}
+          host: ${{ secrets.SSH_HOST }}
+          script: | 
+            cd /var/www/html
+            touch hola.txt
             
 
       
