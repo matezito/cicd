@@ -2,9 +2,9 @@ name: Main Deploy
 
 on:
   push:
-    branches: [ deploy ]
+    branches: [ deploys ]
   pull_request:
-    branches: [ deploy ]
+    branches: [ deploys ]
 
 jobs:
   build:
