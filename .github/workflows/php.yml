@@ -46,12 +46,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: ssh actions
-        uses: appleboy/ssh-action@master
+      - name: shimataro ssh
+        uses: shimataro/ssh-key-action@v2
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          run: ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
           script: | 
             cd /var/www/html/cicd
             composer install
